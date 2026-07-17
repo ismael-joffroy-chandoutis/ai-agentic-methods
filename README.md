@@ -1,13 +1,15 @@
+**English** · [Français](README.fr.md)
+
 # Agentic methods
 
-Méthodes réutilisables pour construire des systèmes d'agents IA qui produisent
-des livrables lisibles. Aucune donnée client ici : ce sont des méthodes, pas des cas.
+Reusable methods for building AI agent systems that produce readable deliverables.
+No client data here: these are methods, not case studies.
 
-- **[GEO / AEO audit](geo-aeo-audit-method.md)** : mesurer et améliorer la visibilité
-  d'une marque dans les réponses des IA (ChatGPT, Gemini, Perplexity, Google AI Overviews).
-- **[Reporting agentique](agentic-reporting-method.md)** : structurer un reporting mensuel
-  qui se produit seul à partir de documents déposés.
-- **[Harness QC multi-agents](multi-agent-qc-harness.md)** : vérifier de façon adversariale
-  ce que des agents produisent, avec un contrôleur-rattrapeur après chaque écriture.
+- **[GEO / AEO audit](geo-aeo-audit-method.md)**: measuring and improving a brand's
+  visibility in AI answers (ChatGPT, Gemini, Perplexity, Google AI Overviews).
+- **[Agentic reporting](agentic-reporting-method.md)**: structuring a monthly report
+  that produces itself from documents that get dropped in.
+- **[Multi-agent QC harness](multi-agent-qc-harness.md)**: adversarially verifying
+  what agents produce, with a catch-and-correct controller after every write step.
 
-Licence : CC BY-SA. Par Ismaël Joffroy Chandoutis.
+License: CC BY-SA. By Ismaël Joffroy Chandoutis.
