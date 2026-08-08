@@ -54,9 +54,10 @@ le cas.
    — la moitié d'une règle composite est plus dangereuse qu'une règle absente, et un
    contrôle qui signale son incertitude rend la lacune corrigeable en une journée.
 9. **[Coût rétrospectif d'un dossier d'agents](lessons/09-retrospective-cost.md)** —
-   mesurer séparément le temps machine et le temps humain : 84 heures de machine
-   contre 8 heures de présence, la moitié de la facture en relecture de contexte, et
-   le poids des fichiers qui ne dit rien du coût.
+   mesurer séparément le temps machine et le temps humain : un temps machine supérieur
+   d'un ordre de grandeur au temps de présence, la moitié de la facture en relecture de
+   contexte plutôt qu'en production de texte, et le poids des fichiers qui ne dit
+   absolument rien du coût.
 
 ## Code générique
 

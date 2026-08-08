@@ -69,15 +69,16 @@ n'est plus en train de calculer, elle attend un humain : l'intervalle n'est pas 
 L'étiqueter comme approximation, et dire ce qu'elle ne distingue pas (temps de
 génération contre temps d'exécution d'outil).
 
-**Le résultat le plus parlant du dossier tient dans une seule ligne** : une session
-affichait 18,7 heures de machine active pour 12,1 heures d'horloge. Ce n'est pas une
-erreur : les sous-agents tournaient en parallèle. **Une nuit de travail humain a mobilisé
-une journée et demie de machine.** C'est exactement ce qu'un tel dispositif vend, et
-c'est mesurable.
+**Le résultat le plus parlant tient dans une seule ligne** : une session a totalisé plus
+d'heures de machine active que d'heures d'horloge. Ce n'est pas une erreur de mesure, et
+c'est le signe qu'il faut chercher : les sous-agents tournaient en parallèle. **Une nuit
+de travail humain mobilise plus d'une journée de machine.** C'est exactement ce qu'un tel
+dispositif vend, et c'est mesurable.
 
-À l'échelle du dossier : 84 heures de machine active, 14 686 appels de modèle, sur des
-sessions dont l'amplitude cumulée dépasse 1 100 heures (les sessions restent ouvertes
-longtemps sans travailler — d'où l'inutilité de l'amplitude comme mesure).
+Deuxième observation de méthode : l'amplitude d'une session, c'est-à-dire l'écart entre
+son premier et son dernier événement, dépasse d'un ordre de grandeur son temps de machine
+active. Les sessions restent ouvertes très longtemps sans travailler. **L'amplitude ne
+mesure donc rien** et ne doit jamais servir de base à une facturation ou à une estimation.
 
 ## Le temps humain, en trois postes étiquetés séparément
 
@@ -88,14 +89,15 @@ Trois postes, chacun avec sa méthode affichée :
 l'humain, en écartant les injections automatiques (notifications, sorties de commande,
 rappels système) et les prompts de sous-agents, qui sont écrits par la machine. Puis
 trois estimations convergentes avec des hypothèses différentes : dictée, frappe au
-clavier, et somme des intervalles entre messages plafonnés. Sur ce dossier : de 5 à
-16 heures selon l'hypothèse, valeur centrale autour de 8.
+clavier, et somme des intervalles entre messages plafonnés. L'écart entre l'hypothèse
+basse et l'hypothèse haute est d'un facteur trois : c'est pourquoi il faut publier une
+fourchette, et retenir la valeur que les intervalles corroborent.
 
 **2. Temps de lecture des livrables (estimation).** Compter les mots, hors doublons de
 mise en forme, à une vitesse de lecture déclarée. Deux bornes : survol (résumé et
-tableaux) et lecture intégrale. Ici : de 2,7 à 16,8 heures, avec une valeur de travail
-retenue de 4 à 6 — parce que la plupart des documents ont été arbitrés sur leur résumé
-et que certains n'ont jamais été ouverts. **Le dire est plus utile que de retenir la
+tableaux) et lecture intégrale. L'écart entre les deux bornes est d'un facteur six, et la
+vérité est près de la borne basse : la plupart des documents ont été arbitrés sur leur
+résumé, et certains n'ont jamais été ouverts. **Le dire est plus utile que de retenir la
 borne haute.**
 
 **3. Réunions, appels et échanges (factuel).** Durées relevées sur les fichiers audio, et
@@ -104,31 +106,34 @@ pas une estimation.
 
 ### Le déséquilibre, qui est le vrai enseignement
 
-| Poste | Fourchette | Valeur de travail |
+| Poste | Nature de la mesure | Poids relatif |
 |---|---|---|
-| Devant les sessions | 5 à 16 h | 8 h |
-| Lecture des livrables | 2,7 à 16,8 h | 5 h |
-| Réunions, appels, messages | 14 à 17 h | 15 h |
-| **Total** | **22 à 50 h** | **environ 28 h** |
+| Réunions, appels, messages | factuel | **le plus lourd des trois** |
+| Devant les sessions | estimé, trois hypothèses | environ la moitié du premier |
+| Lecture des livrables | estimé, deux bornes | le plus léger |
 
-**Le poste le plus lourd n'est pas la production, c'est la relation.** Quinze heures de
-réunions et d'échanges contre huit heures de pilotage et cinq de lecture.
+**Le poste le plus lourd n'est pas la production, c'est la relation.** Les réunions et les
+échanges pèsent davantage que le pilotage des sessions et la lecture des livrables
+réunis. C'est contre-intuitif dans un dispositif qu'on croit fait de production, et c'est
+la mesure qui change les décisions : ce qui ne se délègue pas à des agents est justement
+ce qui coûte le plus.
 
-Et le rapport entre les 84 heures de machine et les 8 heures de présence est le vrai
-indicateur du dispositif : **un facteur dix**.
+Et le rapport entre le temps de machine et le temps de présence humaine est le vrai
+indicateur du dispositif : **un ordre de grandeur**, c'est-à-dire un facteur dix.
 
 ## Trois découvertes structurelles qui se généralisent
 
 **La moitié de la facture est de la relecture de contexte, pas de la production de
-texte.** Les jetons de sortie pesaient environ 330 $, les jetons lus en cache environ
-1 325 $. C'est le prix des documents longs relus à chaque itération et des contrôles
-croisés. Conséquence : optimiser la longueur des sorties ne sert presque à rien ;
-optimiser ce qu'on remet dans le contexte, beaucoup.
+texte.** Les jetons lus en cache ont pesé environ **quatre fois** ce qu'ont pesé les
+jetons de sortie. C'est le prix des documents longs relus à chaque itération et des
+contrôles croisés. Conséquence directe : optimiser la longueur des sorties ne sert
+presque à rien ; optimiser ce qu'on remet dans le contexte, beaucoup.
 
-**La taille des fichiers ne dit rien du coût.** Le plus gros transcrit de la session
-pesait 65 Mo et n'a coûté que 5,45 $, parce qu'une sortie d'outil de 15 Mo y a été
-écrite sans jamais être renvoyée au modèle. **Toute estimation faite à partir du poids
-des fichiers est fausse.**
+**La taille des fichiers ne dit rien du coût.** Le plus gros transcrit de la session,
+de très loin, a été l'un des moins chers : une énorme sortie d'outil y avait été écrite
+sur disque sans jamais être renvoyée au modèle. Le rapport entre son poids et son coût
+est inversé par rapport à tous les autres. **Toute estimation faite à partir du poids
+des fichiers est fausse**, dans les deux sens.
 
 **Le contrôle qualité coûte plus cher que la production.** Le chantier qui représentait
 la moitié du coût de la session était le seul vérifié contre un étalon de corrections
@@ -167,15 +172,17 @@ il est dans la pente de la courbe à partir du deuxième.**
 
 ## Le résultat le plus embarrassant, et il faut l'écrire
 
-Le poste le plus lourd du temps humain était **une réunion fondatrice de huit heures,
-enregistrée et jamais transcrite ni dépouillée**. Tout le dossier a été construit sans
-elle, à partir des mails, des messages et d'appels ultérieurs.
+Le poste le plus lourd du temps humain était **une réunion fondatrice de plusieurs
+heures, enregistrée et jamais transcrite ni dépouillée**. Elle représentait à elle seule
+la majorité de l'enregistrement brut du dossier, et la quasi-totalité de ce qui n'a jamais
+été exploité. Tout le reste a été construit sans elle, à partir des mails, des messages
+et d'appels ultérieurs.
 
-Ce n'est pas du temps perdu — c'est ce qui a créé la relation. Mais c'est un actif
-documentaire dormant : huit heures de matière première sur le besoin réel du client, pour
-un coût de dépouillement de l'ordre de quelques dizaines d'euros en calcul local. C'est
-probablement le meilleur rapport entre coût et valeur qui restait disponible sur le
-dossier.
+Ce n'est pas du temps perdu : c'est ce qui a créé la relation. Mais c'est un actif
+documentaire dormant, et le calcul est sans appel — de la matière première brute sur le
+besoin réel du client, pour un coût de dépouillement négligeable puisque transcription et
+diarisation tournent en local. C'est probablement le meilleur rapport entre coût et valeur
+qui restait disponible sur le dossier.
 
 **Une mesure de coût sert aussi à ça : trouver ce qu'on possède et qu'on n'a pas
 dépouillé.** Un gisement non exploité ne se distingue d'un trou que si on l'a mesuré.

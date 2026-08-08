@@ -53,9 +53,9 @@ Lesson pages are written in French.
    — half a composite rule is more dangerous than no rule, and a check that flags
    its own uncertainty makes the gap fixable in a day.
 9. **[Retrospective cost of an agent engagement](lessons/09-retrospective-cost.md)** —
-   measuring machine and human time separately: 84 machine-hours against 8 hours of
-   human presence, half the bill being context re-reads, and file size telling you
-   nothing about cost.
+   measuring machine and human time separately: machine time exceeding human presence by
+   an order of magnitude, half the bill going to context re-reads rather than to
+   generated text, and file size telling you nothing at all about cost.
 
 ## Generic code
 
